@@ -1,0 +1,317 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+int total=0;
+struct link{
+    int id;
+    char name[20];
+    char f_name[20];
+    char m_name[20];
+    char position[20];
+    char dept[20];
+    int date;
+    int h_no;
+    char street[20];
+    char city[20];
+    char state[20];
+    char country[20];
+    int pin;
+    struct link *next;
+};
+typedef struct link node;
+node *start;
+void create(node*ptr)
+{   char ch;
+    do
+    {
+       cout<<"\n Enter id: ";
+       cin>>ptr->id;
+       cout<<"\n Enter name: ";
+       cin>>ptr->name;
+       cout<<"\n Enter father's name: ";
+       cin>>ptr->f_name;
+       cout<<"\n Enter mother's name: ";
+       cin>>ptr->m_name;
+       cout<<"\n Enter position: ";
+       cin>>ptr->position;
+       cout<<"\n Enter dept: ";
+       cin>>ptr->dept;
+       cout<<"\n Enter house number: ";
+       cin>>ptr->h_no;
+       cout<<"\n Enter street: ";
+       cin>>ptr->street;
+       cout<<"\n Enter city: ";
+       cin>>ptr->city;
+       cout<<"\n Enter state: ";
+       cin>>ptr->state;
+       cout<<"\n Enter country: ";
+       cin>>ptr->country;
+       cout<<"\n \n  ";
+       total++;
+       cout<<"\n Total number of nodes are: "<<total;
+       cout<<"\n Do you want to add more?";
+       cin>>ch;
+       if(ch=='y')
+       {
+           ptr->next= (node*)malloc(sizeof(node));
+           ptr=ptr->next;
+       }
+
+    }while(ch=='y');
+    ptr->next=NULL;
+}
+
+void insertnode(node *ptr)
+{
+       node *newnode;
+       int p;
+       cout<<"\n Enter the position at which you want to insert: ";
+       cin>>p;
+       newnode=(node*)malloc(sizeof(node));
+       cout<<"\n Enter id: ";
+       cin>>newnode->id;
+       cout<<"\n Enter name: ";
+       cin>>newnode->name;
+       cout<<"\n Enter father's name: ";
+       cin>>newnode->f_name;
+       cout<<"\n Enter mother's name: ";
+       cin>>newnode->m_name;
+       cout<<"\n Enter position: ";
+       cin>>newnode->position;
+       cout<<"\n Enter dept: ";
+       cin>>newnode->dept;
+       cout<<"\n Enter house number: ";
+       cin>>newnode->h_no;
+       cout<<"\n Enter street: ";
+       cin>>newnode->street;
+       cout<<"\n Enter city: ";
+       cin>>newnode->city;
+       cout<<"\n Enter state: ";
+       cin>>newnode->state;
+       cout<<"\n Enter country: ";
+       cin>>newnode->country;
+       cout<<"\n \n ";
+       newnode->next==NULL;
+       if(p==1)
+       {
+           newnode->next=start;
+           start=newnode;
+       }
+       else if(p>1 && p<total)
+       {
+           for(int i=1;i<p-1;i++)
+           {
+               ptr=ptr->next;
+           }
+           newnode->next=ptr->next;
+           ptr->next=newnode;
+       }
+       else if(p==total+1)
+       {
+           for(int i=1;i<p-1;i++)
+           {
+               ptr=ptr->next;
+           }
+           ptr->next=newnode;
+           newnode->next=NULL;
+       }
+       total++;
+       cout<<"\n Node inserted";
+       cout<<"\n The total number of nodes are: "<<total;
+}
+
+void deletenode(node *ptr)
+{   node *temp;
+    int delid;
+    cout<<"\n Enter the id of the employee you want to delete: ";
+    cin>>delid;
+    while(ptr->id!=delid && ptr!=NULL)
+    {   temp=ptr;
+        ptr=ptr->next;
+    }
+    if(ptr==NULL)
+    {
+        cout<<"\n Element not found";
+        cout<<"\n \n ";
+    }
+    else
+    {
+        if(start->id==delid)
+        {
+            start=start->next;
+        }
+        else if(ptr->next==NULL)
+        {
+            temp->next=NULL;
+        }
+        else
+        {
+            temp->next=ptr->next;
+        }
+        free(ptr);
+        total--;
+        cout<<"\n Element deleted";
+        cout<<"\n The total number of nodes are: "<<total;
+        cout<<"\n \n ";
+    }
+
+}
+
+void findnode(node *ptr)
+{
+    int searchid;
+    cout<<"\n Enter the id of the employee you want to search for: ";
+    cin>>searchid;
+    while(ptr->id!=searchid && ptr!=NULL)
+    {
+        ptr=ptr->next;
+    }
+    if(ptr==NULL)
+    {
+        cout<<"\n Element not found";
+        cout<<"\n \n ";
+    }
+    else
+    {  cout<<"\n\n Node found. \n Here are the details: \n";
+       cout<<"\n ID: ";
+       cout<<ptr->id;
+       cout<<"\n Name: ";
+       cout<<ptr->name;
+       cout<<"\n Father's name: ";
+       cout<<ptr->f_name;
+       cout<<"\n Mother's name: ";
+       cout<<ptr->m_name;
+       cout<<"\n Position: ";
+       cout<<ptr->position;
+       cout<<"\n Dept: ";
+       cout<<ptr->dept;
+       cout<<"\n House number: ";
+       cout<<ptr->h_no;
+       cout<<"\n Street: ";
+       cout<<ptr->street;
+       cout<<"\n City: ";
+       cout<<ptr->city;
+       cout<<"\n State: ";
+       cout<<ptr->state;
+       cout<<"\n Country: ";
+       cout<<ptr->country;
+       cout<<"\n \n ";
+    }
+}
+
+void updatenode(node *ptr)
+{
+    int searchid;
+    cout<<"\n Enter the id of the employee you want to update: ";
+    cin>>searchid;
+    while(ptr->id!=searchid && ptr!=NULL)
+    {
+        ptr=ptr->next;
+    }
+    if(ptr==NULL)
+    {
+        cout<<"\n Element not found";
+        cout<<"\n \n ";
+    }
+    else
+    {
+       cout<<"\n Enter the new values: ";
+       cout<<"\n Enter id: ";
+       cin>>ptr->id;
+       cout<<"\n Enter name: ";
+       cin>>ptr->name;
+       cout<<"\n Enter father's name: ";
+       cin>>ptr->f_name;
+       cout<<"\n Enter mother's name: ";
+       cin>>ptr->m_name;
+       cout<<"\n Enter position: ";
+       cin>>ptr->position;
+       cout<<"\n Enter dept: ";
+       cin>>ptr->dept;
+       cout<<"\n Enter house number: ";
+       cin>>ptr->h_no;
+       cout<<"\n Enter street: ";
+       cin>>ptr->street;
+       cout<<"\n Enter city: ";
+       cin>>ptr->city;
+       cout<<"\n Enter state: ";
+       cin>>ptr->state;
+       cout<<"\n Enter country: ";
+       cin>>ptr->country;
+       cout<<"\n \n ";
+       cout<<"\n \n Record Updated";
+       cout<<"\n \n ";
+    }
+}
+
+void displaynode(node *ptr)
+{
+    while(ptr!=NULL)
+    {
+       cout<<"\n ID: ";
+       cout<<ptr->id;
+       cout<<"\n Name: ";
+       cout<<ptr->name;
+       cout<<"\n Father's name: ";
+       cout<<ptr->f_name;
+       cout<<"\n Mother's name: ";
+       cout<<ptr->m_name;
+       cout<<"\n Position: ";
+       cout<<ptr->position;
+       cout<<"\n Dept: ";
+       cout<<ptr->dept;
+       cout<<"\n House number: ";
+       cout<<ptr->h_no;
+       cout<<"\n Street: ";
+       cout<<ptr->street;
+       cout<<"\n City: ";
+       cout<<ptr->city;
+       cout<<"\n State: ";
+       cout<<ptr->state;
+       cout<<"\n Country: ";
+       cout<<ptr->country;
+       cout<<"\n \n ";
+       ptr=ptr->next;
+    }
+}
+
+int main()
+{
+    int ch;
+    char choice;
+    start=(node*)malloc(sizeof(node));
+    cout<<"\n Employee Record using linked list";
+    cout<<"\n";
+    create(start);
+    cout<<"\n List created";
+    do{
+    cout<<"\n Choose the operation to be performed";
+    cout<<"\n 1-Insertion";
+    cout<<"\n 2-Deletion";
+    cout<<"\n 3-Search";
+    cout<<"\n 4-Update";
+    cout<<"\n 5-Display";
+    cout<<"\n \n Enter choice: ";
+    cin>>ch;
+    switch(ch)
+    {
+        case 1: insertnode(start);
+                break;
+        case 2: deletenode(start);
+                break;
+        case 3: findnode(start);
+                break;
+        case 4: updatenode(start);
+                break;
+        case 5: displaynode(start);
+                break;
+        default: cout<<"\n Invalid choice";
+    }
+    cout<<"\n Do you want to perform more tasks on the list?: ";
+    cin>>choice;
+    }while(choice=='y');
+return 0;
+}
