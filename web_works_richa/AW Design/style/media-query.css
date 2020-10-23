@@ -1,0 +1,53 @@
+/*--------------------------
+        Media Query
+--------------------------*/
+
+@media all and (max-width: 1200px) {
+    /* Everything acceptable*/
+}
+
+@media all and (max-width: 991px) {
+    .heading-page h1 {
+        font-size: 25px;
+    }
+    .nav-menu a {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .header-section h2{
+       font-size: 35px; 
+    }
+    
+    .header-section p {
+       font-size: 16px; 
+    }
+    
+    .personal-information img {
+        width: 30%;
+    }
+    
+    .personal-information h2 {
+        font-size: 25px;
+    }
+    
+    .personal-information h3 {
+        font-size: 25px;
+    }
+    
+    .personal-information p {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    
+}
+
+@media all and (max-width: 480px) {
+    
+}
+
+@media all and (max-width: 320px) {
+    
+}
