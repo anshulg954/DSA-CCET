@@ -1,0 +1,296 @@
+/* ***************************
+
+        Default Values
+
+Font: Roboto(paragraph) , Calistoga(Heading) , serif(nav-menu)
+
+colors:
+1   Sizzling Red: #f53b57;
+2   Really Dark Blue: #181e2c;
+3   Really Light Blue: #e2ebf8;
+
+****************************/
+
+/*--------------------------
+        Basic Setup
+--------------------------*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #181e2c;
+    font-family: 'Reef', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+body p {
+    font-family: 'Roboto', sans-serif;
+}
+
+body h1,
+body h2,
+body h3,
+body h4 {
+    font-family: 'Calistoga', cursive;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/*--------------------------
+        Header
+--------------------------*/
+
+header {
+    width: 100%;
+    background-color: #181e2c;
+    color: #e2ebf8;
+}
+
+.heading-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.heading-page h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.nav-menu a{
+    color: #e2ebf8;
+    padding: 31px 30px;
+    font-size: 21px;
+    transition: background-color .3s ease-in-out;
+    font-family: serif
+}
+
+.nav-menu a:hover{
+    background-color: #fb3b57;
+}
+
+/*--------------------------
+    Heading-Section
+--------------------------*/
+
+.header-section {
+    height: 60vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0, 0, 0, 0.8)),url(../image/1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    color: #e2ebf8;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header-section h2{
+    font-size: 65px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+
+.header-section p{
+    font-size: 23px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+/*--------------------------
+    Personal-information
+--------------------------*/
+
+.personal-information {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.personal-information img {
+    border: 4px solid #f53b57;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: all .3s linear;
+}
+
+.personal-information img:hover {
+    filter: none;
+    border-radius: 50%;
+}
+
+.personal-information h2 {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.personal-information h3 {
+    margin-top: 40px;
+    font-size: 35px;
+    color: #f53b57;
+}
+
+.personal-information p {
+    max-width: 1400px;
+    margin: 30px auto;
+    font-size: 19px;
+}
+
+/*--------------------------
+        Abilities
+--------------------------*/
+
+.abilities {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin: 120px auto;
+}
+
+.ability {
+    margin-right: 45px;
+}
+
+.ability:last-child {
+    margin-right: 0;
+}
+
+.ability i {
+    color: #f53b57;
+    font-size: 80px;
+}
+
+.ability h3 {
+    margin-top: 20px;
+    font-size: 27px;
+}
+
+.ability p {
+    margin-top: 40px;
+}
+
+/*--------------------------
+        Works
+--------------------------*/
+
+.works {
+    background-color: #181e2c;
+    width: 100%;
+    text-align: center;
+    color: #e2ebf8;
+    padding: 80px 0;
+}
+
+.works h2 {
+    padding-bottom: 50px;
+    font-size: 40px;
+    word-spacing: 4px;
+    letter-spacing: 2px;
+}
+
+.work-gallery {
+    display: flex;
+    flex-flow: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.work-gallery img {
+    width: 32%;
+    margin: 1% 0;
+}
+
+/*--------------------------
+       Contact-me
+--------------------------*/
+
+.contact {
+    background-color: #f53b57;
+    width: 100%;
+    text-align: center;
+    color: #e2ebf8;
+    padding: 80px 0;
+}
+
+.contact h2 {
+    padding-top: 50px;
+    padding-bottom: 35px;
+    text-transform: uppercase; 
+    font-size: 45px;
+    word-spacing: 4px;
+    letter-spacing: 2px;
+}
+
+.contact form {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    margin: 15px auto;
+    padding: 9px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #e2ebf8;
+}
+
+.contact textarea {
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    background-color: #181e2c;
+    color: #e2ebf8;
+}
+
+form .button {
+    border-radius: 10px;
+    border: 2px solid #e2ebf8;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    color: #e2ebf8;
+    transition: all .3s ease;
+}
+
+form .button:hover {
+    background-color: #e2ebf8;
+    color: #f53b57;
+    transform: scale(0.95);
+}
+
+/*--------------------------
+       Footer
+--------------------------*/
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #181e2c;
+    color: #e2ebf8;
+}
